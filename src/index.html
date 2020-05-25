@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Caveat&family=Montserrat:wght@200;300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/build/fouette-components.css" />
+    <title>Stencil Component Starter</title>
+
+    <script type="module" src="/build/fouette-components.esm.js"></script>
+    <script nomodule src="/build/fouette-components.js"></script>
+  </head>
+  <body>
+    <button id="side-drawer-button" style="z-index: 1000; position: absolute;">
+      Open Side Menu
+    </button>
+    <fouette-side-drawer
+      header="Main Menu"
+      footer="8 (925) 123-76-93"
+      icon="smartphone.svg"
+    >
+      <nav>
+        <ul class="side-drawer__menu-list">
+          <li><a href="#">Главная</a></li>
+          <li><a href="#">О школе</a></li>
+          <li><a href="#">Наши группы</a></li>
+          <li><a href="#">Галерея</a></li>
+          <li><a href="#">Расписание</a></li>
+          <li><a href="#">Новости</a></li>
+          <li><a href="#">Преподаватели</a></li>
+          <li><a href="#">Магазин</a></li>
+          <li><a href="#">Контакты</a></li>
+        </ul>
+      </nav>
+    </fouette-side-drawer>
+
+    <script>
+      const sideDrawer = document.querySelector("fouette-side-drawer");
+      const sideDrawerButton = document.querySelector("#side-drawer-button");
+      sideDrawerButton.addEventListener("click", () => {
+        if (!sideDrawer.open) {
+          sideDrawer.open = true;
+        }
+      });
+    </script>
+  </body>
+</html>

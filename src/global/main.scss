@@ -1,0 +1,192 @@
+//Variables
+// BreakPoints
+
+$XS: 26.25em;
+$S: 37.5em;
+$M: 56.25em;
+$L: 75em;
+$XL: 120em;
+
+// Colors:
+
+:root {
+  --primary: #dc8080;
+  --primary-light: #ecbdbc;
+  --primary-dark: #ca5454;
+  --secondary: #d8c496;
+  --secondary-light: #f8ecc9;
+  --content-light: #ada19b;
+  --content-dark: #3c3735;
+  --content: #685e59;
+  --additional-content: #6b5344;
+  --background: #f6f6f6;
+  --white: #fff;
+}
+
+//SASS Colors
+$secondary-light: #f8ecc9;
+
+// Fonts
+
+$default-font-size: 16px;
+$big-header: 10rem;
+
+//Margins
+
+$default-mb: 2.6rem;
+$default-mb-m: 1.6rem;
+$default-mb-s: 0.6rem;
+
+//Shadows
+
+$card-shadow: 0px 4px 6px rgba(134, 99, 99, 0.18);
+
+//Animations
+$anim-duration: 0.3s;
+$anim-function: ease-out;
+
+//Functions
+@function rem($pixels, $context: $default-font-size) {
+  @if (unitless($pixels)) {
+    $pixels: $pixels * 1px;
+  }
+
+  @if (unitless($context)) {
+    $context: $context * 1px;
+  }
+
+  @return $pixels / $context * 1rem;
+}
+
+//Mixins
+
+@mixin media($breakpoint) {
+  // >420px
+  @if $breakpoint == XS {
+    @media only screen and (min-width: $XS) {
+      @content;
+    }
+  }
+  //>600px
+  @if $breakpoint == S {
+    @media only screen and (min-width: $S) {
+      @content;
+    }
+  }
+  //>900px
+  @if $breakpoint == M {
+    @media only screen and (min-width: $M) {
+      @content;
+    }
+  }
+  //>1200px
+  @if $breakpoint == L {
+    @media only screen and (min-width: $L) {
+      @content;
+    }
+  }
+  //>1800px
+  @if $breakpoint == XL {
+    @media only screen and (min-width: $XL) {
+      @content;
+    }
+  }
+}
+
+// Absolute center position
+@mixin absCenter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+body {
+  box-sizing: border-box;
+
+  background-color: var(--background);
+}
+
+img {
+  display: inline-block;
+}
+
+// Main container
+.container {
+  max-width: rem(1400);
+  margin: 0 auto;
+
+  padding: rem(20);
+  margin-top: rem(38);
+
+  @include media(S) {
+    padding: rem(20);
+  }
+
+  @include media(L) {
+    padding: rem(24);
+  }
+}
+
+//Typography
+body {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  font-size: rem(14);
+
+  line-height: 1.7;
+  color: var(--content-dark);
+
+  @include media(M) {
+    font-size: rem(16);
+  }
+}
+
+.side-drawer__menu-list {
+  list-style-type: none;
+
+  li {
+    padding: 1rem;
+    position: relative;
+
+    &::before {
+      content: "";
+      display: block;
+      position: absolute;
+      bottom: 0.9rem;
+      left: 0;
+
+      height: 1px;
+      width: 0%;
+
+      background-color: var(--secondary);
+
+      transition: width 0.7s $anim-function;
+    }
+
+    &:hover a {
+      color: var(--primary);
+    }
+
+    &:hover::before {
+      width: 70%;
+    }
+  }
+  a {
+    color: var(--content-dark);
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    text-transform: uppercase;
+
+    transition: all $anim-duration $anim-function;
+  }
+}
