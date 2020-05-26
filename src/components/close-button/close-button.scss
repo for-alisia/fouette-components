@@ -1,0 +1,50 @@
+button {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+
+  width: 22px;
+  height: 22px;
+
+  color: var(--primary);
+  background-color: transparent;
+
+  border: none;
+
+  cursor: pointer;
+
+  &:focus {
+    outline: none;
+  }
+
+  &::before,
+  &::after {
+    content: "";
+    display: block;
+    width: 2rem;
+    height: 2px;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 11;
+
+    border-radius: 1px;
+
+    background-color: var(--primary);
+
+    transform: rotate(45deg);
+    transform-origin: top left;
+    transition: all 0.3s ease-out;
+  }
+
+  &::after {
+    top: 100%;
+    transform: rotate(-45deg);
+  }
+
+  &:hover::before,
+  &:hover::after {
+    background-color: var(--content-light);
+  }
+}

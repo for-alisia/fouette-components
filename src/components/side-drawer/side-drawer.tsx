@@ -26,8 +26,8 @@ export class SideDrawer {
       <div class="backdrop" onClick={this.onCloseDrawer}></div>,
       <aside>
         <header>
-          <h1>{this.header}</h1>
-          <button onClick={this.onCloseDrawer}></button>
+          <fouette-logo image="logo.svg" />
+          <fouette-close-button onClose={this.onCloseDrawer} />
         </header>
         <main>
           <slot />
