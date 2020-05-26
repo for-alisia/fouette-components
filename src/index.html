@@ -22,8 +22,8 @@
     </button>
     <fouette-side-drawer
       header="Main Menu"
-      footer="8 (925) 123-76-93"
-      icon="smartphone.svg"
+      phone="8 (925) 123-76-93"
+      email="test@mail.com"
     >
       <nav>
         <ul class="side-drawer__menu-list">
@@ -44,8 +44,8 @@
       const sideDrawer = document.querySelector("fouette-side-drawer");
       const sideDrawerButton = document.querySelector("#side-drawer-button");
       sideDrawerButton.addEventListener("click", () => {
-        if (!sideDrawer.open) {
-          sideDrawer.open = true;
+        if (!sideDrawer.opened) {
+          sideDrawer.open();
         }
       });
     </script>

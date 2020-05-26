@@ -112,7 +112,7 @@ $anim-function: ease-out;
 body {
   box-sizing: border-box;
 
-  background-color: var(--background);
+  background-color: var(--primary-light);
 }
 
 img {
@@ -140,28 +140,29 @@ img {
 body {
   font-family: "Montserrat", sans-serif;
   font-weight: 400;
-  font-size: rem(14);
+  font-size: 14px;
 
   line-height: 1.7;
   color: var(--content-dark);
 
   @include media(M) {
-    font-size: rem(16);
+    font-size: 16px;
   }
 }
 
+//Menu-list
 .side-drawer__menu-list {
   list-style-type: none;
 
   li {
-    padding: 1rem;
+    padding: 0.5rem;
     position: relative;
 
     &::before {
       content: "";
       display: block;
       position: absolute;
-      bottom: 0.9rem;
+      bottom: 0.65rem;
       left: 0;
 
       height: 1px;
@@ -169,7 +170,11 @@ body {
 
       background-color: var(--secondary);
 
-      transition: width 0.7s $anim-function;
+      transition: width 1s $anim-function;
+
+      @include media(S) {
+        bottom: 0.9rem;
+      }
     }
 
     &:hover a {
@@ -178,6 +183,10 @@ body {
 
     &:hover::before {
       width: 70%;
+    }
+
+    @include media(S) {
+      padding: 1rem;
     }
   }
   a {

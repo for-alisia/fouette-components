@@ -7,10 +7,13 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface FouetteSideDrawer {
+        "email": string;
+        "extra": string;
         "footer": string;
         "header": string;
-        "icon": string;
-        "open": boolean;
+        "open": () => Promise<void>;
+        "opened": boolean;
+        "phone": string;
     }
 }
 declare global {
@@ -26,10 +29,12 @@ declare global {
 }
 declare namespace LocalJSX {
     interface FouetteSideDrawer {
+        "email"?: string;
+        "extra"?: string;
         "footer"?: string;
         "header"?: string;
-        "icon"?: string;
-        "open"?: boolean;
+        "opened"?: boolean;
+        "phone"?: string;
     }
     interface IntrinsicElements {
         "fouette-side-drawer": FouetteSideDrawer;
