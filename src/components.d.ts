@@ -6,6 +6,11 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
+    interface FouetteButton {
+        "buttonLink": boolean;
+        "buttonStyle": string;
+        "linkUrl": string;
+    }
     interface FouetteCloseButton {
     }
     interface FouetteLogo {
@@ -26,6 +31,12 @@ export namespace Components {
     }
 }
 declare global {
+    interface HTMLFouetteButtonElement extends Components.FouetteButton, HTMLStencilElement {
+    }
+    var HTMLFouetteButtonElement: {
+        prototype: HTMLFouetteButtonElement;
+        new (): HTMLFouetteButtonElement;
+    };
     interface HTMLFouetteCloseButtonElement extends Components.FouetteCloseButton, HTMLStencilElement {
     }
     var HTMLFouetteCloseButtonElement: {
@@ -51,6 +62,7 @@ declare global {
         new (): HTMLFouetteSideDrawerPanelElement;
     };
     interface HTMLElementTagNameMap {
+        "fouette-button": HTMLFouetteButtonElement;
         "fouette-close-button": HTMLFouetteCloseButtonElement;
         "fouette-logo": HTMLFouetteLogoElement;
         "fouette-side-drawer": HTMLFouetteSideDrawerElement;
@@ -58,6 +70,11 @@ declare global {
     }
 }
 declare namespace LocalJSX {
+    interface FouetteButton {
+        "buttonLink"?: boolean;
+        "buttonStyle"?: string;
+        "linkUrl"?: string;
+    }
     interface FouetteCloseButton {
         "onClose"?: (event: CustomEvent<any>) => void;
     }
@@ -79,6 +96,7 @@ declare namespace LocalJSX {
         "panelTitle"?: string;
     }
     interface IntrinsicElements {
+        "fouette-button": FouetteButton;
         "fouette-close-button": FouetteCloseButton;
         "fouette-logo": FouetteLogo;
         "fouette-side-drawer": FouetteSideDrawer;
@@ -89,6 +107,7 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "fouette-button": LocalJSX.FouetteButton & JSXBase.HTMLAttributes<HTMLFouetteButtonElement>;
             "fouette-close-button": LocalJSX.FouetteCloseButton & JSXBase.HTMLAttributes<HTMLFouetteCloseButtonElement>;
             "fouette-logo": LocalJSX.FouetteLogo & JSXBase.HTMLAttributes<HTMLFouetteLogoElement>;
             "fouette-side-drawer": LocalJSX.FouetteSideDrawer & JSXBase.HTMLAttributes<HTMLFouetteSideDrawerElement>;

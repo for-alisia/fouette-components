@@ -1,0 +1,129 @@
+.fouette-button {
+  background-color: transparent;
+  color: var(--primary);
+  text-decoration: none;
+  border: 1px solid var(--primary);
+  border-radius: 100px;
+
+  position: relative;
+  display: inline-block;
+
+  padding: 0.5rem 1.2rem;
+
+  overflow: hidden;
+
+  font-size: 1rem;
+
+  transition: all 0.3s ease-out;
+
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: -40%;
+    left: 50%;
+
+    transform: translateX(-50%) scale(0);
+    transform-origin: 50% 100%;
+
+    z-index: -1;
+
+    width: 150%;
+    height: 230%;
+
+    background: var(--primary);
+    border-radius: 50%;
+
+    transition: all 0.3s ease-out;
+  }
+
+  &:hover {
+    color: var(--background);
+
+    transform: translateY(1px);
+
+    &:before {
+      transform: translateX(-50%) scale(1);
+    }
+  }
+
+  &.solid {
+    background-color: var(--primary);
+
+    color: var(--background);
+
+    &::before {
+      background-color: var(--background);
+    }
+
+    &:hover {
+      color: var(--primary);
+    }
+  }
+
+  &.simple {
+    border: none;
+
+    padding: 0.2rem 0.3rem;
+    border-radius: 0;
+
+    overflow: visible;
+
+    &:hover {
+      color: var(--primary);
+    }
+    &::before {
+      content: "";
+      display: inline-block;
+
+      width: 100%;
+      height: 1px;
+
+      position: absolute;
+      top: 100%;
+      left: 0;
+
+      transform: translateX(0) scale(1);
+      transform-origin: 0 0;
+
+      background-color: var(--secondary);
+
+      transition: all 0.3s ease-out;
+    }
+
+    &::after {
+      content: "";
+      display: inline-block;
+
+      position: absolute;
+      bottom: 1px;
+      left: 0;
+      z-index: -1;
+
+      height: 100%;
+      width: 0;
+
+      background-color: var(--secondary-light);
+
+      @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
+        clip-path: polygon(0 0, 98% 0, 85% 100%, 0 100%);
+      }
+
+      transition: all 0.3s ease-out;
+    }
+
+    &:hover::before {
+      width: 85%;
+    }
+
+    &:hover::after {
+      width: 100%;
+    }
+  }
+}
