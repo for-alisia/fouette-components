@@ -7,19 +7,22 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface FouetteCloseButton {
-        "onClose": any;
     }
     interface FouetteLogo {
         "image": string;
+        "link": string;
     }
     interface FouetteSideDrawer {
         "email": string;
         "extra": string;
         "footer": string;
         "header": string;
-        "open": () => Promise<void>;
+        "link": string;
         "opened": boolean;
         "phone": string;
+    }
+    interface FouetteSideDrawerPanel {
+        "panelTitle": string;
     }
 }
 declare global {
@@ -41,31 +44,45 @@ declare global {
         prototype: HTMLFouetteSideDrawerElement;
         new (): HTMLFouetteSideDrawerElement;
     };
+    interface HTMLFouetteSideDrawerPanelElement extends Components.FouetteSideDrawerPanel, HTMLStencilElement {
+    }
+    var HTMLFouetteSideDrawerPanelElement: {
+        prototype: HTMLFouetteSideDrawerPanelElement;
+        new (): HTMLFouetteSideDrawerPanelElement;
+    };
     interface HTMLElementTagNameMap {
         "fouette-close-button": HTMLFouetteCloseButtonElement;
         "fouette-logo": HTMLFouetteLogoElement;
         "fouette-side-drawer": HTMLFouetteSideDrawerElement;
+        "fouette-side-drawer-panel": HTMLFouetteSideDrawerPanelElement;
     }
 }
 declare namespace LocalJSX {
     interface FouetteCloseButton {
-        "onClose"?: any;
+        "onClose"?: (event: CustomEvent<any>) => void;
     }
     interface FouetteLogo {
         "image"?: string;
+        "link"?: string;
     }
     interface FouetteSideDrawer {
         "email"?: string;
         "extra"?: string;
         "footer"?: string;
         "header"?: string;
+        "link"?: string;
         "opened"?: boolean;
         "phone"?: string;
+    }
+    interface FouetteSideDrawerPanel {
+        "onOpenDrawer"?: (event: CustomEvent<any>) => void;
+        "panelTitle"?: string;
     }
     interface IntrinsicElements {
         "fouette-close-button": FouetteCloseButton;
         "fouette-logo": FouetteLogo;
         "fouette-side-drawer": FouetteSideDrawer;
+        "fouette-side-drawer-panel": FouetteSideDrawerPanel;
     }
 }
 export { LocalJSX as JSX };
@@ -75,6 +92,7 @@ declare module "@stencil/core" {
             "fouette-close-button": LocalJSX.FouetteCloseButton & JSXBase.HTMLAttributes<HTMLFouetteCloseButtonElement>;
             "fouette-logo": LocalJSX.FouetteLogo & JSXBase.HTMLAttributes<HTMLFouetteLogoElement>;
             "fouette-side-drawer": LocalJSX.FouetteSideDrawer & JSXBase.HTMLAttributes<HTMLFouetteSideDrawerElement>;
+            "fouette-side-drawer-panel": LocalJSX.FouetteSideDrawerPanel & JSXBase.HTMLAttributes<HTMLFouetteSideDrawerPanelElement>;
         }
     }
 }

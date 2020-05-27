@@ -1,4 +1,4 @@
-import { Component, h, Prop } from "@stencil/core/internal";
+import { Component, h, Event, EventEmitter } from "@stencil/core/internal";
 
 @Component({
   tag: "fouette-close-button",
@@ -6,9 +6,13 @@ import { Component, h, Prop } from "@stencil/core/internal";
   shadow: true,
 })
 export class CloseButton {
-  @Prop({ reflectToAttr: true }) onClose: any;
+  @Event() close: EventEmitter;
+
+  closeHandler = () => {
+    this.close.emit();
+  };
 
   render() {
-    return <button onClick={() => this.onClose()}></button>;
+    return <button onClick={this.closeHandler}></button>;
   }
 }

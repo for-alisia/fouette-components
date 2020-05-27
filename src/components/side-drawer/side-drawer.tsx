@@ -1,4 +1,4 @@
-import { Component, h, Prop, Method } from "@stencil/core/internal";
+import { Component, h, Prop, Listen } from "@stencil/core/internal";
 
 @Component({
   tag: "fouette-side-drawer",
@@ -11,23 +11,30 @@ export class SideDrawer {
   @Prop({ reflectToAttr: true }) phone: string;
   @Prop({ reflectToAttr: true }) email: string;
   @Prop({ reflectToAttr: true }) extra: string;
+  @Prop() link: string;
   @Prop({ reflectToAttr: true, mutable: true }) opened: boolean;
+
+  @Listen("close")
+  closeHandler() {
+    this.onCloseDrawer();
+  }
+
+  @Listen("body:openDrawer")
+  openHandler() {
+    this.opened = true;
+  }
 
   onCloseDrawer = () => {
     this.opened = false;
   };
-
-  @Method() open() {
-    this.opened = true;
-  }
 
   render() {
     return [
       <div class="backdrop" onClick={this.onCloseDrawer}></div>,
       <aside>
         <header>
-          <fouette-logo image="logo.svg" />
-          <fouette-close-button onClose={this.onCloseDrawer} />
+          <fouette-logo image="logo.svg" link={this.link} />
+          <fouette-close-button close={this.closeHandler} />
         </header>
         <main>
           <slot />

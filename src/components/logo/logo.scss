@@ -1,11 +1,17 @@
+a {
+  display: inline-block;
+  text-decoration: none;
+}
+
 figure {
   margin: 0;
 
   img {
-    max-width: 5rem;
+    width: 5rem;
+    max-width: 100%;
 
     @media only screen and (min-width: 900px) {
-      max-width: 8rem;
+      width: 8rem;
     }
   }
 }

@@ -17,13 +17,12 @@
     <script nomodule src="/build/fouette-components.js"></script>
   </head>
   <body>
-    <button id="side-drawer-button" style="z-index: 1000; position: absolute;">
-      Open Side Menu
-    </button>
+    <fouette-side-drawer-panel id="side-drawer-panel" panel-title="Меню"></fouette-side-drawer-panel>
     <fouette-side-drawer
       header="Main Menu"
       phone="8 (925) 123-76-93"
       email="test@mail.com"
+      link="https://google.com"
     >
       <nav>
         <ul class="side-drawer__menu-list">
@@ -38,16 +37,19 @@
           <li><a href="#">Контакты</a></li>
         </ul>
       </nav>
-    </fouette-side-drawer>
+    </fouette-side-drawer-panel>
 
     <script>
-      const sideDrawer = document.querySelector("fouette-side-drawer");
-      const sideDrawerButton = document.querySelector("#side-drawer-button");
-      sideDrawerButton.addEventListener("click", () => {
-        if (!sideDrawer.opened) {
-          sideDrawer.open();
-        }
-      });
+      //  const sideDrawer = document.querySelector("fouette-side-drawer");
+      //  const sideDrawerPanel = document.querySelector("#side-drawer-panel");
+      //  sideDrawerPanel.addEventListener('open', () => {
+      //    !sideDrawer.opened && (sideDrawer.opened = true);
+      //  })
+      // sideDrawerPanel.addEventListener("click", () => {
+      //   if (!sideDrawer.opened) {
+      //     sideDrawer.opened = true;
+      //   }
+      // });
     </script>
   </body>
 </html>

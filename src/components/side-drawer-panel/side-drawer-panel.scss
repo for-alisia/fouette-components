@@ -1,0 +1,77 @@
+.side-drawer-panel {
+  width: 4rem;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  position: relative;
+
+  background-color: var(--background);
+
+  &__logo {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 3rem;
+    padding: 0.5rem;
+  }
+
+  &__title {
+    display: flex;
+    align-items: center;
+
+    transform: translateY(-3rem);
+
+    padding: 2rem 0.5rem;
+
+    position: relative;
+
+    span {
+      writing-mode: vertical-lr;
+      text-transform: uppercase;
+      color: var(--primary);
+      font-size: 1rem;
+      letter-spacing: 3px;
+
+      transform: rotate(180deg);
+
+      transition: all 0.3s ease-out;
+    }
+
+    svg {
+      path {
+        transition: all 0.3s ease-out;
+      }
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &:hover path {
+      fill: var(--primary);
+    }
+
+    &::before {
+      content: "";
+      display: block;
+      width: 0;
+      height: 100%;
+
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
+
+      background-color: var(--secondary-light);
+
+      transition: all 0.3s ease-out;
+    }
+
+    &:hover::before {
+      width: 100%;
+    }
+  }
+}

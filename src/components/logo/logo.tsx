@@ -8,14 +8,15 @@ import { Component, h, Prop, getAssetPath } from "@stencil/core/internal";
 })
 export class Logo {
   @Prop() image = "logo.svg";
+  @Prop() link: string;
 
   render() {
     return (
-      <div>
+      <a href={this.link}>
         <figure>
           <img src={getAssetPath(`./assets/${this.image}`)} />
         </figure>
-      </div>
+      </a>
     );
   }
 }
