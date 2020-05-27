@@ -39,13 +39,15 @@
       </nav>
     </fouette-side-drawer-panel> -->
     <div style="padding-top: 2rem; padding-left: 2rem;">
-      <fouette-button
-        button-link
-        link-url="https://google.com"
-        button-style="simple"
-        >Записаться</fouette-button
-      >
+      <fouette-button>Записаться</fouette-button>
     </div>
+    <fouette-modal modal-type="border">
+      <h3>Оставить заявку</h3>
+      <p>
+        Если вы хотите оставить заявку, позвонте нам по телефону в течение
+        рабочего дня с понедельника по пятницу.
+      </p>
+    </fouette-modal>
 
     <script>
       //  const sideDrawer = document.querySelector("fouette-side-drawer");
@@ -58,6 +60,14 @@
       //     sideDrawer.opened = true;
       //   }
       // });
+
+      const btn = document.querySelector("fouette-button");
+      const modal = document.querySelector("fouette-modal");
+      btn.addEventListener("click", () => {
+        if (!modal.opened) {
+          modal.opened = true;
+        }
+      });
     </script>
   </body>
 </html>

@@ -19,7 +19,7 @@ export class SideDrawer {
     this.onCloseDrawer();
   }
 
-  @Listen("body:openDrawer")
+  @Listen("openDrawer", { target: "body" })
   openHandler() {
     this.opened = true;
   }
