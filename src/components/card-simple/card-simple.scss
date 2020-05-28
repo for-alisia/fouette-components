@@ -1,0 +1,12 @@
+div {
+  background-color: var(--white);
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.15);
+  border-radius: 1px;
+
+  display: inline-block;
+  width: auto;
+
+  &.fouette-card--padding {
+    padding: 1rem;
+  }
+}

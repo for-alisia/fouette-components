@@ -6,10 +6,20 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
+    interface FouetteAvatar {
+        "avatarLink": string;
+        "avatarType": string;
+        "imgAlt": string;
+        "imgUrl": string;
+        "imgUrl2x": string;
+    }
     interface FouetteButton {
         "buttonLink": boolean;
         "buttonStyle": string;
         "linkUrl": string;
+    }
+    interface FouetteCardSimple {
+        "withPadding": string;
     }
     interface FouetteCloseButton {
     }
@@ -35,11 +45,23 @@ export namespace Components {
     }
 }
 declare global {
+    interface HTMLFouetteAvatarElement extends Components.FouetteAvatar, HTMLStencilElement {
+    }
+    var HTMLFouetteAvatarElement: {
+        prototype: HTMLFouetteAvatarElement;
+        new (): HTMLFouetteAvatarElement;
+    };
     interface HTMLFouetteButtonElement extends Components.FouetteButton, HTMLStencilElement {
     }
     var HTMLFouetteButtonElement: {
         prototype: HTMLFouetteButtonElement;
         new (): HTMLFouetteButtonElement;
+    };
+    interface HTMLFouetteCardSimpleElement extends Components.FouetteCardSimple, HTMLStencilElement {
+    }
+    var HTMLFouetteCardSimpleElement: {
+        prototype: HTMLFouetteCardSimpleElement;
+        new (): HTMLFouetteCardSimpleElement;
     };
     interface HTMLFouetteCloseButtonElement extends Components.FouetteCloseButton, HTMLStencilElement {
     }
@@ -72,7 +94,9 @@ declare global {
         new (): HTMLFouetteSideDrawerPanelElement;
     };
     interface HTMLElementTagNameMap {
+        "fouette-avatar": HTMLFouetteAvatarElement;
         "fouette-button": HTMLFouetteButtonElement;
+        "fouette-card-simple": HTMLFouetteCardSimpleElement;
         "fouette-close-button": HTMLFouetteCloseButtonElement;
         "fouette-logo": HTMLFouetteLogoElement;
         "fouette-modal": HTMLFouetteModalElement;
@@ -81,10 +105,20 @@ declare global {
     }
 }
 declare namespace LocalJSX {
+    interface FouetteAvatar {
+        "avatarLink"?: string;
+        "avatarType"?: string;
+        "imgAlt"?: string;
+        "imgUrl"?: string;
+        "imgUrl2x"?: string;
+    }
     interface FouetteButton {
         "buttonLink"?: boolean;
         "buttonStyle"?: string;
         "linkUrl"?: string;
+    }
+    interface FouetteCardSimple {
+        "withPadding"?: string;
     }
     interface FouetteCloseButton {
         "onClose"?: (event: CustomEvent<any>) => void;
@@ -111,7 +145,9 @@ declare namespace LocalJSX {
         "panelTitle"?: string;
     }
     interface IntrinsicElements {
+        "fouette-avatar": FouetteAvatar;
         "fouette-button": FouetteButton;
+        "fouette-card-simple": FouetteCardSimple;
         "fouette-close-button": FouetteCloseButton;
         "fouette-logo": FouetteLogo;
         "fouette-modal": FouetteModal;
@@ -123,7 +159,9 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "fouette-avatar": LocalJSX.FouetteAvatar & JSXBase.HTMLAttributes<HTMLFouetteAvatarElement>;
             "fouette-button": LocalJSX.FouetteButton & JSXBase.HTMLAttributes<HTMLFouetteButtonElement>;
+            "fouette-card-simple": LocalJSX.FouetteCardSimple & JSXBase.HTMLAttributes<HTMLFouetteCardSimpleElement>;
             "fouette-close-button": LocalJSX.FouetteCloseButton & JSXBase.HTMLAttributes<HTMLFouetteCloseButtonElement>;
             "fouette-logo": LocalJSX.FouetteLogo & JSXBase.HTMLAttributes<HTMLFouetteLogoElement>;
             "fouette-modal": LocalJSX.FouetteModal & JSXBase.HTMLAttributes<HTMLFouetteModalElement>;
