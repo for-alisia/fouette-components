@@ -7,9 +7,11 @@
 
 ## Properties
 
-| Property     | Attribute     | Description | Type     | Default     |
-| ------------ | ------------- | ----------- | -------- | ----------- |
-| `panelTitle` | `panel-title` |             | `string` | `undefined` |
+| Property     | Attribute      | Description | Type     | Default     |
+| ------------ | -------------- | ----------- | -------- | ----------- |
+| `linkToHome` | `link-to-home` |             | `string` | `undefined` |
+| `logoUrl`    | `logo-url`     |             | `string` | `undefined` |
+| `panelTitle` | `panel-title`  |             | `string` | `undefined` |
 
 
 ## Events

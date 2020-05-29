@@ -12,6 +12,8 @@ import {
   shadow: true,
 })
 export class SideDrawerPanel {
+  @Prop() logoUrl: string;
+  @Prop() linkToHome: string;
   @Prop() panelTitle: string;
 
   @Event() openDrawer: EventEmitter;
@@ -46,7 +48,10 @@ export class SideDrawerPanel {
           </svg>
         </div>
         <div class="side-drawer-panel__logo">
-          <fouette-logo></fouette-logo>
+          <fouette-logo
+            image={this.logoUrl}
+            link={this.linkToHome}
+          ></fouette-logo>
         </div>
         <div class="side-drawer-panel__title" onClick={this.openHandler}>
           <span>{this.panelTitle}</span>

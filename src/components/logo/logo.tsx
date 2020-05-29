@@ -1,4 +1,4 @@
-import { Component, h, Prop, getAssetPath } from "@stencil/core/internal";
+import { Component, h, Prop } from "@stencil/core/internal";
 
 @Component({
   tag: "fouette-logo",
@@ -7,14 +7,14 @@ import { Component, h, Prop, getAssetPath } from "@stencil/core/internal";
   assetsDirs: ["assets"],
 })
 export class Logo {
-  @Prop() image = "logo.svg";
+  @Prop() image: string;
   @Prop() link: string;
 
   render() {
     return (
       <a href={this.link}>
         <figure>
-          <img src={getAssetPath(`./assets/${this.image}`)} />
+          <img src={this.image} />
         </figure>
       </a>
     );

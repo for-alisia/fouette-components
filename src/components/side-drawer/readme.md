@@ -7,15 +7,16 @@
 
 ## Properties
 
-| Property | Attribute | Description | Type      | Default     |
-| -------- | --------- | ----------- | --------- | ----------- |
-| `email`  | `email`   |             | `string`  | `undefined` |
-| `extra`  | `extra`   |             | `string`  | `undefined` |
-| `footer` | `footer`  |             | `string`  | `undefined` |
-| `header` | `header`  |             | `string`  | `undefined` |
-| `link`   | `link`    |             | `string`  | `undefined` |
-| `opened` | `opened`  |             | `boolean` | `undefined` |
-| `phone`  | `phone`   |             | `string`  | `undefined` |
+| Property     | Attribute      | Description | Type      | Default     |
+| ------------ | -------------- | ----------- | --------- | ----------- |
+| `email`      | `email`        |             | `string`  | `undefined` |
+| `extra`      | `extra`        |             | `string`  | `undefined` |
+| `footer`     | `footer`       |             | `string`  | `undefined` |
+| `header`     | `header`       |             | `string`  | `undefined` |
+| `linkToHome` | `link-to-home` |             | `string`  | `undefined` |
+| `logoUrl`    | `logo-url`     |             | `string`  | `undefined` |
+| `opened`     | `opened`       |             | `boolean` | `undefined` |
+| `phone`      | `phone`        |             | `string`  | `undefined` |
 
 
 ## Dependencies

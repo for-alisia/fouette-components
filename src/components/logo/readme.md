@@ -7,10 +7,10 @@
 
 ## Properties
 
-| Property | Attribute | Description | Type     | Default      |
-| -------- | --------- | ----------- | -------- | ------------ |
-| `image`  | `image`   |             | `string` | `"logo.svg"` |
-| `link`   | `link`    |             | `string` | `undefined`  |
+| Property | Attribute | Description | Type     | Default     |
+| -------- | --------- | ----------- | -------- | ----------- |
+| `image`  | `image`   |             | `string` | `undefined` |
+| `link`   | `link`    |             | `string` | `undefined` |
 
 
 ## Dependencies

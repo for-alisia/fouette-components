@@ -11,7 +11,8 @@ export class SideDrawer {
   @Prop({ reflectToAttr: true }) phone: string;
   @Prop({ reflectToAttr: true }) email: string;
   @Prop({ reflectToAttr: true }) extra: string;
-  @Prop() link: string;
+  @Prop() linkToHome: string;
+  @Prop({ reflectToAttr: true }) logoUrl: string;
   @Prop({ reflectToAttr: true, mutable: true }) opened: boolean;
 
   @Listen("close")
@@ -33,7 +34,7 @@ export class SideDrawer {
       <div class="backdrop" onClick={this.onCloseDrawer}></div>,
       <aside>
         <header>
-          <fouette-logo image="logo.svg" link={this.link} />
+          <fouette-logo image={this.logoUrl} link={this.linkToHome} />
           <fouette-close-button close={this.closeHandler} />
         </header>
         <main>

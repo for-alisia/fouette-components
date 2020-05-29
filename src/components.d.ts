@@ -36,11 +36,14 @@ export namespace Components {
         "extra": string;
         "footer": string;
         "header": string;
-        "link": string;
+        "linkToHome": string;
+        "logoUrl": string;
         "opened": boolean;
         "phone": string;
     }
     interface FouetteSideDrawerPanel {
+        "linkToHome": string;
+        "logoUrl": string;
         "panelTitle": string;
     }
 }
@@ -136,11 +139,14 @@ declare namespace LocalJSX {
         "extra"?: string;
         "footer"?: string;
         "header"?: string;
-        "link"?: string;
+        "linkToHome"?: string;
+        "logoUrl"?: string;
         "opened"?: boolean;
         "phone"?: string;
     }
     interface FouetteSideDrawerPanel {
+        "linkToHome"?: string;
+        "logoUrl"?: string;
         "onOpenDrawer"?: (event: CustomEvent<any>) => void;
         "panelTitle"?: string;
     }
