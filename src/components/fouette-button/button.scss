@@ -13,6 +13,8 @@
   overflow: hidden;
 
   font-size: 1rem;
+  font-family: "Montserrat", serif;
+  letter-spacing: 1.2px;
 
   transition: all 0.3s ease-out;
 
@@ -67,6 +69,19 @@
     }
   }
 
+  &.white {
+    border-color: var(--background);
+    color: var(--background);
+
+    &::before {
+      background-color: var(--background);
+    }
+
+    &:hover {
+      color: var(--primary);
+    }
+  }
+
   &.simple {
     border: none;
 
@@ -76,6 +91,8 @@
     overflow: visible;
 
     &:hover {
+      transform: translateY(0);
+
       color: var(--primary);
     }
     &::before {
@@ -86,6 +103,7 @@
       height: 1px;
 
       position: absolute;
+      z-index: 6;
       top: 100%;
       left: 0;
 
@@ -99,31 +117,25 @@
 
     &::after {
       content: "";
-      display: inline-block;
 
       position: absolute;
-      bottom: 1px;
+      z-index: 6;
+      top: 0;
       left: 0;
-      z-index: -1;
 
-      height: 100%;
-      width: 0;
+      width: 100%;
+      height: 1px;
 
-      background-color: var(--secondary-light);
+      transform-origin: 50% 50%;
+      transform: scaleX(0);
 
-      @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
-        clip-path: polygon(0 0, 98% 0, 85% 100%, 0 100%);
-      }
+      background-color: var(--secondary);
 
       transition: all 0.3s ease-out;
     }
 
-    &:hover::before {
-      width: 85%;
-    }
-
     &:hover::after {
-      width: 100%;
+      transform: scaleX(1);
     }
   }
 }
